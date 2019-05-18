@@ -38,4 +38,12 @@ abstract class MovableElement{
     xSpeed = x;
     ySpeed = y;
   }
+  
+  public float getXSpeed(){
+    return xSpeed;
+  }
+  
+  public float getYSpeed(){
+    return ySpeed;
+  }
 }
