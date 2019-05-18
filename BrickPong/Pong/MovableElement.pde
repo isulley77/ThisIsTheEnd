@@ -8,10 +8,23 @@ public class abstract MovableElement{
   private Float xSpeed;
   private Float ySpeed;
   
-  public getX(){
+  public int getX(){
     return xCord;
   }
+  
+  public int getY(){
+    return yCord;
+  }
+  
+  public void speedUp(){
+    xSpeed *= 1.15;
+    ySpeed *= 1.15;
+  }
 
+  public void slowDown(){
+    xSpeed *= .85;
+    ySpeed *= .85;
+  }
 
 
 
