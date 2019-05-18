@@ -2,7 +2,10 @@ class Ball extends MovableElement{
 
   
   public Ball(float x, float y, float w, float h){
-    setX()
+    setX(x);
+    setY(y);
+    
+    ellipse(getX(), getY(), w, h);
   
   }
 }
