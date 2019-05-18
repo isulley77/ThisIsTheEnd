@@ -33,6 +33,9 @@ abstract class MovableElement{
   public void setY(float y){
     yCord = y;
   }
-
-
+  
+  public void setSpeed(float x, float y){
+    xSpeed = x;
+    ySpeed = y;
+  }
 }

@@ -6,6 +6,9 @@ class Ball extends MovableElement{
     setY(y);
     
     ellipse(getX(), getY(), w, h);
+    
+    setSpeed(2.0, 3.0);
+    
   
   }
 }
