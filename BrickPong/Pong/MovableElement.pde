@@ -1,18 +1,18 @@
-public class abstract MovableElement{
+abstract class MovableElement{
 
   //Elements position
   private Float xCord;
-  private Float ycord;
+  private Float yCord;
   
   //Elements speed
   private Float xSpeed;
   private Float ySpeed;
   
-  public int getX(){
+  public float getX(){
     return xCord;
   }
   
-  public int getY(){
+  public float getY(){
     return yCord;
   }
   
@@ -26,6 +26,13 @@ public class abstract MovableElement{
     ySpeed *= .85;
   }
 
+  public void setX(float x){
+    xCord = x;
+  }
+  
+  public void setY(float y){
+    yCord = y;
+  }
 
 
 }
