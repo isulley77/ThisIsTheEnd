@@ -1,12 +1,12 @@
 abstract class MovableElement{
 
   //Elements position
-  private Float xCord;
-  private Float yCord;
+  public Float xCord;
+  public Float yCord;
   
   //Elements speed
-  private Float xSpeed;
-  private Float ySpeed;
+  public Float xSpeed;
+  public Float ySpeed;
   
   public float getX(){
     return xCord;
