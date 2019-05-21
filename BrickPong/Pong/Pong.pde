@@ -13,6 +13,8 @@
     b.display();
     b.move();
     p.display();
+    p.keyPressed();
+    p.move();
 
   
   }
