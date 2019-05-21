@@ -24,16 +24,33 @@ public class PongPaddle extends MovableElement{
   public void keyPressed(){
     if (key == 'w' || key == 'W') {
     upL = true;
+    }
+    if (key == 's' || key == 'S') {
+      downL = true;
+    }
+    if (key == 'i' || key == 'I') {
+      upR = true;
+    }
+    if (key == 'k' || key == 'K') {
+      downR = true;
+    }
   }
-  if (key == 's' || key == 'S') {
-    downL = true;
+  
+  public void keyReleased(){
+  
+        if (key == 'w' || key == 'W') {
+    upL = false;
+    }
+    if (key == 's' || key == 'S') {
+      downL = false;
+    }
+    if (key == 'i' || key == 'I') {
+      upR = false;
+    }
+    if (key == 'k' || key == 'K') {
+      downR = false;
+    }
+  
+  
   }
-  if (key == 'i') {
-    upR = true;
-  }
-  if (keyCode == 'k') {
-    downR = true;
-  }
-}
-
 }
