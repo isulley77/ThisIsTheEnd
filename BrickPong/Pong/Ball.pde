@@ -24,4 +24,12 @@ class Ball extends MovableElement{
       setSpeed(getXSpeed(), getYSpeed() * -1.0); 
     }
   }
+  
+  public void bounce(PongPaddle p){
+    if(this.getX() <= p.getX() + p.getWidth()){
+    
+    setSpeed(getXSpeed() * -1, getYSpeed());
+    }
+  
+  }
 }

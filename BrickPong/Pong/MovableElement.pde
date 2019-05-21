@@ -8,6 +8,11 @@ abstract class MovableElement{
   public Float xSpeed;
   public Float ySpeed;
   
+  //Elements dimensions
+  
+  public Float width;
+  public Float height; 
+  
   public float getX(){
     return xCord;
   }
@@ -46,4 +51,21 @@ abstract class MovableElement{
   public float getYSpeed(){
     return ySpeed;
   }
+  
+  public float getWidth(){
+    return width;
+  }
+  
+  public float getHeight(){
+    return height;
+  }
+ 
+  public void setWidth(float w){
+    width = w;
+  }
+  
+  public void setHeight(float h){
+    height = h;
+  }
+  
 }
