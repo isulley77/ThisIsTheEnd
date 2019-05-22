@@ -13,8 +13,9 @@
     b.display();
     b.move();
     p.display();
-    p.move();
     p.keyPressed();
+    p.move();
+ 
     
 
   

@@ -19,6 +19,9 @@ public class PongPaddle extends MovableElement{
     if (downL) {
       yCord = yCord + ySpeed;
     }
+    else{
+      p.keyPressed();
+    }
   }
   
   public void keyPressed(){
@@ -53,4 +56,6 @@ public class PongPaddle extends MovableElement{
   
   
   }
+  
+  
 }
