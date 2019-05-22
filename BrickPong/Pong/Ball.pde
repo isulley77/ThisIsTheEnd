@@ -1,6 +1,6 @@
 class Ball extends MovableElement{
 
-  
+  //constructor
   public Ball(float x, float y, float w, float h){
     setX(x);
     setY(y);
@@ -8,10 +8,12 @@ class Ball extends MovableElement{
     
    
   }
+  //display the ball
   public void display(){
     ellipse(getX(), getY(), 50, 50);
   }
   
+  //move the ball
   public void move(){
     xCord += xSpeed;
     yCord += ySpeed;
@@ -25,6 +27,7 @@ class Ball extends MovableElement{
     }
   }
   
+  //bounce off pongPaddle
   public void bounce(PongPaddle p){
     if(this.getX() <= p.getX() + p.getWidth()){
     
