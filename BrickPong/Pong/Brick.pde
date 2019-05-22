@@ -7,5 +7,7 @@ public class Brick extends MovableElement{
     setSpeed(0.0,ySpeed);
   }
 
-
+  public void display(){
+    rect(xCord, yCord, 100.0, 25.0);
+  }
 }
