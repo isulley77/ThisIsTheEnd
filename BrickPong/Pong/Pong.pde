@@ -1,4 +1,4 @@
-   public boolean upL, downL, upR, downR;
+public boolean upL, downL, upR, downR;
   
   float r1 = random(255);
   float r2 = random(255);
