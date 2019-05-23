@@ -1,5 +1,8 @@
    public boolean upL, downL, upR, downR;
   
+  float r1 = random(255);
+  float r2 = random(255);
+  float r3 = random(255);
   
   Ball b = new Ball(350.0, 350.0, 50.0, 50.0);
   PongPaddle p = new PongPaddle(100.0, 100.0, 2.0);
@@ -11,16 +14,25 @@
   }
   
   void draw() {
+   
+    //diplay world and elements
     background(0);
     stroke(255);
-    fill(random(255), random(255), random(255));
+   
+    fill(r1, r2, r3);
     b.display();
+   
+    fill(r3, r1, r2);
     p.display();
-    p.move(upL, downL);
+ 
+    fill(r2, r3, r1);
     brick.display();
-    brick.move();
     
+    
+    //move
+    p.move(upL, downL);
     b.move();
+    brick.move();
    
     
 
