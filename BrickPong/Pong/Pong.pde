@@ -16,6 +16,7 @@
     fill(random(255), random(255), random(255));
     b.display();
     p.display();
+    p.move(upL, downL);
     brick.display();
     brick.move();
     
@@ -24,7 +25,7 @@
     
 
     //p.keyPressed();
-    p.move();
+    //p.move();
     
  
     

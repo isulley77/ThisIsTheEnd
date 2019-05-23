@@ -12,7 +12,7 @@ public class PongPaddle extends MovableElement{
     rect(xCord, yCord, 50, 100);
   }
   
-  public void move(){
+  public void move(boolean upL, boolean downL){
     if (upL) {
       yCord = yCord - ySpeed;
     }
