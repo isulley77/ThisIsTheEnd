@@ -5,8 +5,20 @@
   PongPaddle p = new PongPaddle(100.0, 100.0, 2.0);
   Brick brick = new Brick( 300.0, 600.0, 2.0);
   
+  void contactPaddle(){
+  if (b.xCord - b.width/2 < p.xCord + p.width/2 && b.yCord - b.height/2 < p.yCord + p.height/2 && b.yCord + b.height/2 > p.yCord - p.height/2 ) {
+    if (b.xSpeed < 0) {
+      b.xSpeed = b.xSpeed * -1;
+    }
+  }
+  else if (b.xCord + b.width/2 > p.xCord - p.width/2 && b.yCord - b.height/2 < p.yCord + p.height/2 && b.yCord + b.height/2 > p.yCord - p.height/2 ) {
+    if (b.xSpeed > 0) {
+      b.xSpeed = b.xSpeed*-1;
+    }
+  }  
+ }
   void setup() {
-    size(700, 700);
+    size(1400, 700);
     
   }
   
@@ -21,6 +33,7 @@
     brick.move();
     
     b.move();
+    contactPaddle();
    
     
 
@@ -64,7 +77,7 @@
       downR = false;
     }
   
-  
+
   }
 
 

@@ -18,7 +18,7 @@ class Ball extends MovableElement{
     xCord += xSpeed;
     yCord += ySpeed;
     
-     if(getX() > 700 || getX() < 0){
+     if(getX() > 1400 || getX() < 0){
       setSpeed(getXSpeed() * -1.0, getYSpeed()); 
     }
     
@@ -35,4 +35,5 @@ class Ball extends MovableElement{
     }
   
   }
+ 
 }
