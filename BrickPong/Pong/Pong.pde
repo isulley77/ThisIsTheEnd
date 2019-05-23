@@ -4,7 +4,7 @@
   Ball b = new Ball(350.0, 350.0, 50.0, 50.0);
   PongPaddle p = new PongPaddle(100.0, 100.0, 2.0);
   Brick brick = new Brick( 300.0, 600.0, 2.0);
-  
+/*  
   void contactPaddle(){
   if (b.xCord - b.width/2 < p.xCord + p.width/2 && b.yCord - b.height/2 < p.yCord + p.height/2 && b.yCord + b.height/2 > p.yCord - p.height/2 ) {
     if (b.xSpeed < 0) {
@@ -17,6 +17,8 @@
     }
   }  
  }
+ 
+ */
   void setup() {
     size(1400, 700);
     
