@@ -5,12 +5,18 @@ public boolean paused = false;
   float r2 = random(255);
   float r3 = random(255);
   
-  Ball b = new Ball(350.0, 350.0, 50.0, 50.0);
-  PongPaddle p = new PongPaddle(100.0, 100.0, 2.0);
-  Brick brick = new Brick( 300.0, 600.0, 2.0);
-  
+  Ball b;
+  PongPaddle p;
+  Brick brick;
   void setup() {
+   
+      
     size(700, 700);
+    
+    b = new Ball(350.0, 350.0, 50.0, 50.0);
+    p = new PongPaddle(100.0, 100.0, 2.0);
+    brick = new Brick( 300.0, 600.0, 2.0);
+
     
   }
   
@@ -34,6 +40,7 @@ public boolean paused = false;
     p.move(upL, downL);
     b.move();
     brick.move();
+
    
     
 
