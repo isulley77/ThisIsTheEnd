@@ -1,4 +1,5 @@
 public boolean upL, downL, upR, downR;
+public boolean paused = false;
   
   float r1 = random(255);
   float r2 = random(255);
@@ -39,7 +40,7 @@ public boolean upL, downL, upR, downR;
     //p.keyPressed();
     //p.move();
     
- 
+   pause();
     
 
   
@@ -59,6 +60,11 @@ public boolean upL, downL, upR, downR;
     if (key == 'k' || key == 'K') {
       downR = true;
     }
+    if (key == ENTER) {
+      paused = !paused;
+    }
+    
+    
   }
   
   public void keyReleased(){
@@ -75,9 +81,26 @@ public boolean upL, downL, upR, downR;
     if (key == 'k' || key == 'K') {
       downR = false;
     }
+
+    
   
   
   }
+  
+  
+  void pause(){
+    if(paused){
+      noLoop();
+      drawPauseScreen();
+    
+    }else{
+      loop();
+    }
+  
+  }
 
+  void drawPauseScreen(){
+  
+  }
 
  
