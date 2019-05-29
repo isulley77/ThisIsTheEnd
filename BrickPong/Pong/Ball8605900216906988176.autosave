@@ -4,10 +4,7 @@ class Ball extends MovableElement{
   public Ball(float x, float y, float w, float h){
     setX(x);
     setY(y);
-    setSpeed(6.0, 3.0);
-    setHeight(h);
-    setWidth(w);
-    
+    setSpeed(2.0, 3.0);
     
    
   }
@@ -21,7 +18,7 @@ class Ball extends MovableElement{
     xCord += xSpeed;
     yCord += ySpeed;
     
-     if(getX() > 1400 || getX() < 0){
+     if(getX() > 700 || getX() < 0){
       setSpeed(getXSpeed() * -1.0, getYSpeed()); 
     }
     
@@ -32,11 +29,10 @@ class Ball extends MovableElement{
   
   //bounce off pongPaddle
   public void bounce(PongPaddle p){
-    if(this.getX() - (this.getWidth() / 2) <= p.getX() + p.getWidth() && this.getY() - this.getHeight() > p.getY() && this.getY() + (this.getHeight() / 2 ) > p.getY() + p.getHeight()){
+    if(this.getX() - 50 <= p.getX() + p.getWidth() && this.getY() > p.getY() && this.getY()  p.get(height)){
     
-    this.setSpeed(getXSpeed() * -1, getYSpeed());
+    setSpeed(getXSpeed() * -1, getYSpeed());
     }
   
   }
- 
 }
