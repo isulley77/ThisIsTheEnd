@@ -16,6 +16,7 @@ void draw() {
   background(0);
   stroke(255);
   fill(random(255), random(255), random(255));
+  
   b.display();
   p.display();
   p.move(upL, downL);
@@ -25,6 +26,7 @@ void draw() {
   b.move();
   //contactPaddle();
   b.bounce(p);
+
 }  
 
 //p.keyPressed();
