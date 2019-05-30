@@ -16,7 +16,7 @@ public boolean paused = false;
     size(1400, 700);
 
     b = new Ball(350.0, 350.0, 50.0, 50.0);
-    p = new PongPaddle(100.0, 100.0, 2.0);
+    p = new PongPaddle(100.0, 100.0, 7.0);
     brick = new Brick( 300.0, 600.0, 2.0);
 
 

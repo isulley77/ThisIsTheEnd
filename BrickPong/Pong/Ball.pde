@@ -28,6 +28,11 @@ class Ball extends MovableElement{
     if(getY() > 700 || getY() < 0){
       setSpeed(getXSpeed(), getYSpeed() * -1.0); 
     }
+   /* 
+    if(getX() < 150 || getX() > 1250){
+      noLoop();
+    }
+    */
   }
   
   //bounce off pongPaddle
