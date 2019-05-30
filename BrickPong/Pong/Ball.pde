@@ -32,9 +32,9 @@ class Ball extends MovableElement{
   
   //bounce off pongPaddle
   public void bounce(PongPaddle p){
-    if(this.getX() - (this.getWidth() / 2) <= p.getX() + p.getWidth() && this.getY() - this.getHeight() > p.getY() && this.getY() + (this.getHeight() / 2 ) > p.getY() + p.getHeight()){
+    if(this.getX() - (this.getWidth() / 2) <= p.getX() + p.getWidth() && this.getY() - (this.getHeight() / 2) > p.getY() && this.getY() + (this.getHeight() / 2 ) < p.getY() + p.getHeight()){
     
-    this.setSpeed(getXSpeed() * -1, getYSpeed());
+    this.setSpeed(getXSpeed() * -1, getYSpeed() * random(3) + .5);
     }
   
   }
