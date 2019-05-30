@@ -42,6 +42,8 @@ public boolean paused = false;
     p.move(upL, downL);
     b.move();
     brick.move();
+    keyPressed();
+    keyReleased();
 
 }
 
