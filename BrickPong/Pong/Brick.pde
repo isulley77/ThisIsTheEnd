@@ -16,8 +16,8 @@ public class Brick extends MovableElement{
   }
 
   //display the brick
-  public void display(){
-    rect(xCord, yCord, 100.0, 25.0);
+ void display(){
+    rect(this.xCord, this.yCord, 100.0, 25.0);
   }
 
   

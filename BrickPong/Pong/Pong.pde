@@ -13,7 +13,7 @@ int level = 10;
   PongPaddle p;
   PongPaddle p2;
   Brick brick;
-  Brick[] bricks  = new Brick[level];
+  Brick bricks[] = new Brick[level];
   
   
   
@@ -47,8 +47,7 @@ int level = 10;
     
     fill(r2, r3, r1);
     //brick.display();
-    //displayBricks();
-
+    //brickDisplay();
 
     //move
     p.move(upL, downL);
@@ -96,14 +95,19 @@ public void keyReleased() {
 
 
 void brickGen(){
- while(level > 0){
+ for(int counter = 0; counter < level; counter++){
     if(brickWidth > 300 && brickHeight > 100){  
-    bricks[level - 1] = new Brick(brickWidth - 100.0, brickHeight, 0.0);
+    bricks[counter] = new Brick(brickWidth - 100.0, brickHeight, 0.0);
     brickWidth = brickWidth - 200.0;
     }else{
        brickWidth = 1100.0;
-       brickHeight =-  random(2) + 1.0 * 25.0 ;
+       brickHeight =-  random(1) + 1.0 * 25.0 ;
     }
-    level--;
  }
+}
+
+void brickDisplay(){
+  for(Brick b: bricks){
+    b.display();
+  }
 }
