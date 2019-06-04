@@ -33,7 +33,7 @@ public boolean paused = false;
 
     fill(r3, r1, r2);
     p.display();
-
+    
     fill(r2, r3, r1);
     brick.display();
 
@@ -49,10 +49,7 @@ public boolean paused = false;
 
 }
 
-
-
 void keyPressed(){
-
     if (key == 'w' || key == 'W') {
       upL = true;
     }

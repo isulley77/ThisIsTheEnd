@@ -21,6 +21,13 @@ public class PongPaddle extends MovableElement{
     if (downL) {
       yCord = yCord + ySpeed;
     }
+    
+    if(getY() <= 0.0){
+      setY(0.0);
+    }
+    if(getY() + getHeight() >= 700.0){
+       setY(700.0 - this.getHeight());
+    }
   }
 
   
