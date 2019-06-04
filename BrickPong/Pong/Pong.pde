@@ -7,6 +7,7 @@ public boolean paused = false;
 
   Ball b;
   PongPaddle p;
+  PongPaddle p2;
   Brick brick;
   
   
@@ -17,6 +18,7 @@ public boolean paused = false;
 
     b = new Ball(350.0, 350.0, 50.0, 50.0);
     p = new PongPaddle(100.0, 100.0, 7.0);
+    p2 = new PongPaddle(1300.0, 100.0, 7.0);
     brick = new Brick( 300.0, 600.0, 2.0);
 
 
@@ -33,6 +35,7 @@ public boolean paused = false;
 
     fill(r3, r1, r2);
     p.display();
+    p2.display();
     
     fill(r2, r3, r1);
     brick.display();
@@ -40,9 +43,11 @@ public boolean paused = false;
 
     //move
     p.move(upL, downL);
+    p2.move(upR, downR);
     b.move();
     brick.move();
     b.bounce(p);
+    b.bounce(p2);
     keyPressed();
     keyReleased();
     
