@@ -3,8 +3,7 @@ public class Brick extends MovableElement{
   //# of hits that can be endured
   int health;
   int index;
-  int level = 10;
-  Brick[] bricks = new Brick[level];
+
   
   
   //Constructor
@@ -20,11 +19,13 @@ public class Brick extends MovableElement{
   public void display(){
     rect(xCord, yCord, 100.0, 25.0);
   }
+
   
-  public void move(){
+/*  public void move(){
     yCord = yCord - ySpeed; 
   
   }
+  */
   
   
   //break the brick
@@ -32,7 +33,7 @@ public class Brick extends MovableElement{
   
     if(health  <= 0){
       
-      bricks[this. index] = null;
+      bricks[this.index] = null;
       
   
     
