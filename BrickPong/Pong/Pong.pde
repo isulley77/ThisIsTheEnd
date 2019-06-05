@@ -1,6 +1,7 @@
 boolean upL, downL, upR, downR;
 boolean paused = false;
 int level = 10;
+int score = 0;
 
   float r1 = random(255);
   float r2 = random(255);
@@ -45,8 +46,8 @@ int level = 10;
     p2.display();
     
     fill(r2, r3, r1);
-    //brick.display();
     brickDisplay();
+   
 
     //move
     p.move(upL, downL);
@@ -55,6 +56,7 @@ int level = 10;
     //brick.move();
     b.bounce(p);
     b.bounce(p2);
+    brickBounce();
     keyPressed();
     keyReleased();
     
@@ -110,6 +112,14 @@ void brickGen(){
 
 void brickDisplay(){
   for(Brick b: bricks){
-    b.display();
+    if( b != null){
+      b.display();
+    }
+  }
+}
+
+void brickBounce(){
+  for(Brick brick: bricks){
+    b.bounce(brick);
   }
 }

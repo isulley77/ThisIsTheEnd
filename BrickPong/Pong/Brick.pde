@@ -1,7 +1,7 @@
 public class Brick extends MovableElement{
 
   //# of hits that can be endured
-  int health;
+  int health = 1;
   int index;
 
   
@@ -13,11 +13,13 @@ public class Brick extends MovableElement{
     setX(x);
     setY(y);
     setSpeed(0.0,ySpeed);
+    setHeight(25.0);
+    setWidth(100.0);
   }
 
   //display the brick
  void display(){
-    rect(this.xCord, this.yCord, 100.0, 25.0);
+    rect(this.xCord, this.yCord, getWidth() , getHeight());
   }
 
   
@@ -30,14 +32,9 @@ public class Brick extends MovableElement{
   
   //break the brick
   public void remove(){
-  
-    if(health  <= 0){
-      
-      bricks[this.index] = null;
-      
-  
-    
+  this.setX(-10000.0); 
+  this.setY(-10000.0);
+  score += 1;
     } 
   
-  }
 }
