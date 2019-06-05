@@ -27,8 +27,8 @@ void setup() {
   size(1400, 700);
 
   b = new Ball(700.0, 350.0, 50.0, 50.0);
-  p = new PongPaddle(100.0, 350.0, 7.0);
-  p2 = new PongPaddle(1300.0, 350.0, 7.0);
+  p = new PongPaddle(100.0, 350.0, 15.0);
+  p2 = new PongPaddle(1300.0, 350.0, 15.0);
   brickGen();
 }
 

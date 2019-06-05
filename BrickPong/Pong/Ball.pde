@@ -26,11 +26,11 @@ class Ball extends MovableElement {
       setSpeed(getXSpeed(), getYSpeed() * -1.0);
     }
 
-     if(getX() < 150){
+     if(getX() < 100){
        p2Score++;
        init();
      }
-     if( getX() > 1250){
+     if( getX() > 1300){
        p1Score++;
        init();
      }
@@ -41,9 +41,9 @@ class Ball extends MovableElement {
   public void bounce(PongPaddle b) {
 
     double distance2 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
-   
+    double distance3 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow((b.getY() + (getHeight() / 2)) - yCord, 2)));
     double distance4 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow((b.getY() + getHeight()) - yCord, 2)));
-    if (distance2 < 25.0 || distance4 < 25.0) {
+    if (distance2 < 25.0 || distance4 < 25.0  || distance3 < 25.0) {
       this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
     }
   }
