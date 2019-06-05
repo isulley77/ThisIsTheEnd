@@ -1,7 +1,8 @@
- Ball b;
+Ball b;
  PongPaddle p;
  Brick brick;
  boolean upL, downL, upR, downR;
+ int tracker;
  
 void setup() {
   size(1400, 700);
