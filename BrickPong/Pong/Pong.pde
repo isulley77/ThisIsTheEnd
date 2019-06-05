@@ -94,13 +94,17 @@ public void keyReleased() {
 
 
 void brickGen(){
-    float brickWidth = 1100.0;
+  float brickWidth = 1100.0;
   float brickHeight = 600.0;
+  
   for(int counter = 0; counter < level; counter++){
     bricks[counter] = new Brick(brickWidth, brickHeight, 0.0);
   
-  brickWidth = brickWidth - 100.0;
-  brickHeight = brickHeight - 25.0;
+  brickWidth = brickWidth - (random(3) + 1) *100.0;
+  if(brickWidth < 300){
+    brickWidth = 1100.0 - (random(3) + 1) *100.0;
+  }
+  brickHeight = brickHeight - (random(2) + 1) * 25.0;
   }
 }
 
