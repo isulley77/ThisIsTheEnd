@@ -18,7 +18,6 @@ PongPaddle p;
 PongPaddle p2;
 Brick brick;
 Brick bricks[] = new Brick[level];
-ArrayList<PowerUp> powerups = new ArrayList<PowerUp>();
 
 
 
@@ -28,8 +27,8 @@ void setup() {
   size(1400, 700);
 
   b = new Ball(700.0, 350.0, 50.0, 50.0);
-  p = new PongPaddle(100.0, 350.0, 100.0);
-  p2 = new PongPaddle(1300.0, 350.0, 100.0);
+  p = new PongPaddle(100.0, 350.0, 15.0);
+  p2 = new PongPaddle(1300.0, 350.0, 15.0);
   brickGen();
 }
 
@@ -50,9 +49,6 @@ void draw() {
   brickDisplay();
 
 
-
-
-
   //move
   p.move(upL, downL);
   p2.move(upR, downR);
@@ -61,10 +57,8 @@ void draw() {
   b.bounce(p);
   b.bounce(p2);
   brickBounce();
-  powerupBounce();
   //pause();
   userInter();
-  newPowers();
   keyPressed();
   keyReleased();
 }
@@ -132,21 +126,17 @@ void brickBounce() {
   }
 }
 
-void powerupBounce(){
-  for(PowerUp p: powerups){
-    b.bounce(p);
-  }
-}
-
-void userInter() {
+void userInter(){
 
   stroke(255);
   fill(255);
   textSize(64);
   text(score, 700.0, 50.0);
-
+  
   text(p1Score, 100.0, 50.0);
   text(p2Score, 1300.0, 50.0);
+
+
 }
 
 
@@ -154,38 +144,18 @@ void init() {
   frameCount = -1;
 }
 
-void newPowers() {
-  if (frameCount % 30 == 0) {
-    powerups.add(new PowerUp(200.0 + random(1000), 0.0, 15.0, 15.0));
-  }
-  powerupDisplay();
-  powerupMove();
-}
-
-void powerupDisplay(){
-  for(PowerUp p: powerups){
-    p.display();
-  }
-}
-
-void powerupMove(){
-  for(PowerUp p: powerups){
-    p.move();
-  }
-}
-
 /*
 void pause() {
- if (paused) {
- noLoop();
- stroke(0);
- fill(random(255), random(255), random(255));
- rect(0.0, 0.0, 1400.0, 700.0);
- stroke(0);
- fill(random(255), random(255), random(255));
- textSize(64);
- text("Paused", 600.0, 350.0);
- }
- }
- 
- */
+  if (paused) {
+    noLoop();
+    stroke(0);
+    fill(random(255), random(255), random(255));
+    rect(0.0, 0.0, 1400.0, 700.0);
+    stroke(0);
+    fill(random(255), random(255), random(255));
+    textSize(64);
+    text("Paused", 600.0, 350.0);
+  }
+  }
+  
+  */
