@@ -37,8 +37,8 @@ class Ball extends MovableElement{
   
   //bounce off pongPaddle
   public void bounce(PongPaddle p){
-    if(this.getX() - (this.getWidth() / 2) == p.getX() + p.getWidth() && this.getY() > p.getY() && this.getY() < p.getY() + p.getHeight()){
-    
+    double distance = Math.sqrt(Math.pow(p.getX() - xCord, 2) + (Math.pow(p.getY() - yCord, 2)));
+    if(distance < 25.0){
     this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
     }
   
