@@ -1,7 +1,7 @@
 boolean upL, downL, upR, downR;
 boolean paused = false;
-boolean startScreen = false;
-boolean game = true;
+boolean startScreen = true;
+boolean game = false;
 
 int level = 10;
 int score = 0;
@@ -25,8 +25,8 @@ Brick bricks[] = new Brick[level];
 
 
 void setup() {
-  
-  
+
+
   font1 = loadFont("SitkaSubheading-Bold-48.vlw");
 
 
@@ -39,7 +39,7 @@ void setup() {
 }
 
 void draw() {
-  
+
   textFont(font1);  
 
   if (startScreen) {
@@ -75,6 +75,10 @@ void draw() {
     userInter();
     keyPressed();
     keyReleased();
+  }
+
+  if (paused) {
+    pauseScreen();
   }
 }
 
@@ -157,36 +161,53 @@ void init() {
   frameCount = -1;
 }
 
-/*
-void pause() {
- if (paused) {
- noLoop();
- stroke(0);
- fill(random(255), random(255), random(255));
- rect(0.0, 0.0, 1400.0, 700.0);
- stroke(0);
- fill(random(255), random(255), random(255));
- textSize(64);
- text("Paused", 600.0, 350.0);
- }
- }
- 
- */
+
+void pauseScreen() {
+  stroke(0);
+  fill(random(255), random(255), random(255));
+  rect(0.0, 0.0, 1400.0, 700.0);
+  stroke(0);
+  fill(random(255), random(255), random(255));
+  textSize(64);
+  text("Paused", 600.0, 350.0);
+}
+
 
 
 void introScreen() {
 
   //Setup Background
-  fill(r2, r1, r3);
-  rect(0.0, 0.0, 1400.0, 700.0);
   
+  fill(r1, r2, r3);
+  rect(0.0, 0.0, 1400.0, 700.0);
+
   //Set Title
   textSize(64);
-  fill(r1, r3, r2);
-  text("BrickPong", 600.0, 350.0);
-  
-  //Gamemodes
+  fill(r1, r1, r1);
+  textAlign(CENTER);
+  text("BrickPong", 700.0, 350.0);
+
+  //Options
   textSize(32);
-  text("One Player", 500.0, 450.0);
-  text("Two Player", 700.0, 450.0);
+  
+  fill(r3, r2, r1);
+  rect(515.0, 420.0, 175.0, 40.0);
+  fill(r1, r1, r1);
+  text("One Player", 600.0, 450.0);
+  
+  fill(r3, r2, r1);
+  rect(715.0, 420.0, 175.0, 40.0);
+  fill(r1, r1, r1);
+  text("Two Player", 800.0, 450.0);
+  
+  fill(r3, r2, r1);
+  rect(625.0, 520.0, 150.0, 40.0);
+  fill(r1, r1, r1);
+  text("Controls", 700.0, 550.0);
 }
+/*
+void mousePressed(){
+  if(mouseX > )
+
+}
+*/
