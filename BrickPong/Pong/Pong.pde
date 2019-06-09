@@ -12,6 +12,8 @@ float r1 = random(255);
 float r2 = random(255);
 float r3 = random(255);
 
+PFont font1;
+
 
 
 Ball b;
@@ -23,6 +25,9 @@ Brick bricks[] = new Brick[level];
 
 
 void setup() {
+  
+  
+  font1 = loadFont("SitkaSubheading-Bold-48.vlw");
 
 
   size(1400, 700);
@@ -34,6 +39,8 @@ void setup() {
 }
 
 void draw() {
+  
+  textFont(font1);  
 
   if (startScreen) {
     introScreen();
@@ -172,7 +179,14 @@ void introScreen() {
   //Setup Background
   fill(r2, r1, r3);
   rect(0.0, 0.0, 1400.0, 700.0);
+  
+  //Set Title
   textSize(64);
   fill(r1, r3, r2);
   text("BrickPong", 600.0, 350.0);
+  
+  //Gamemodes
+  textSize(32);
+  text("One Player", 500.0, 450.0);
+  text("Two Player", 700.0, 450.0);
 }
