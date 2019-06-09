@@ -1,7 +1,7 @@
 boolean upL, downL, upR, downR;
 boolean paused = false;
-boolean startScreen = true;
-boolean game = false;
+boolean startScreen = false;
+boolean game = true;
 
 int level = 10;
 int score = 0;

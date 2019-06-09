@@ -38,6 +38,8 @@ class Ball extends MovableElement {
   }
 
   //bounce off pongPaddle
+  
+  /*
   public void bounce(PongPaddle b) {
 
     double distance2 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
@@ -47,14 +49,24 @@ class Ball extends MovableElement {
       this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
     }
   }
-
+*/
+  
+  void bounce(PongPaddle p){
+    if(b.getX() >= 1275 && b.getY() > p.getY() && b.getY() < (p.getY() + 100)){
+      b.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
+    }
+    if(b.getX() <= 175 && b.getY() > p.getY() && b.getY() < (p.getY() + 100)){
+      b.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
+    }
+  
+  }
   public void bounce(Brick b) {
     double distance = Math.sqrt(Math.pow(b.getX() - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
     double distance2 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
     double distance3 = Math.sqrt(Math.pow(b.getX() - xCord, 2) + (Math.pow((b.getY() + b.getHeight()) - yCord, 2)));
     double distance4 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow((b.getY() + getHeight()) - yCord, 2)));
     if (distance < 25.0 || distance2 < 25.0 || distance3 < 25.0 || distance4 < 25.0) {
-      this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
+      this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .25);
       b.health--;
       if(b.health == 0){
         b.remove();
