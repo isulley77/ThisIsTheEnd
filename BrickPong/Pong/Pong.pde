@@ -1,6 +1,7 @@
 boolean upL, downL, upR, downR;
 boolean paused = false;
 boolean startScreen = true;
+boolean controlScreen = false;
 boolean game = false;
 
 int level = 10;
@@ -177,7 +178,7 @@ void pauseScreen() {
 void introScreen() {
 
   //Setup Background
-  
+
   fill(r1, r2, r3);
   rect(0.0, 0.0, 1400.0, 700.0);
 
@@ -189,25 +190,45 @@ void introScreen() {
 
   //Options
   textSize(32);
-  
+
   fill(r3, r2, r1);
   rect(515.0, 420.0, 175.0, 40.0);
   fill(r1, r1, r1);
   text("One Player", 600.0, 450.0);
-  
+
   fill(r3, r2, r1);
   rect(715.0, 420.0, 175.0, 40.0);
   fill(r1, r1, r1);
   text("Two Player", 800.0, 450.0);
-  
+
   fill(r3, r2, r1);
   rect(625.0, 520.0, 150.0, 40.0);
   fill(r1, r1, r1);
   text("Controls", 700.0, 550.0);
 }
-/*
-void mousePressed(){
-  if(mouseX > )
 
+void mousePressed() {
+
+  //select one player mode
+  if (mouseX > 515.0 - 175.0 && mouseX < 515.0 + 175.0 && 
+    mouseY > 420.0 - 40.0 && mouseY < 420.0 + 40.0 &&
+    startScreen == true) {
+    game = true;
+    startScreen = false;
+  }
+  //select two player mode
+  if (mouseX > 715.0 - 175.0 && mouseX < 715.0 + 175.0 && 
+    mouseY > 420.0 - 40.0 && mouseY < 420.0 + 40.0 &&
+    startScreen == true) {
+    game = true;
+    startScreen = false;
+  }
+  
+  //select controls menu
+  if (mouseX > 625.0 - 150.0 && mouseX < 625.0 + 150.0 && 
+    mouseY > 520.0 - 40.0 && mouseY < 520.0 + 40.0 &&
+    startScreen == true) {
+    controlScreen = true;
+    startScreen = false;
+  }
 }
-*/
