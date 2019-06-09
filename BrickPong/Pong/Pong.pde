@@ -1,6 +1,7 @@
 boolean upL, downL, upR, downR;
 boolean paused = false;
-
+boolean startScreen = true;
+boolean game = false;
 
 int level = 10;
 int score = 0;
@@ -34,33 +35,40 @@ void setup() {
 
 void draw() {
 
-  //diplay world and elements
-  background(0);
-  stroke(255);
-
-  fill(r1, r2, r3);
-  b.display();
-
-  fill(r3, r1, r2);
-  p.display();
-  p2.display();
-
-  fill(r2, r3, r1);
-  brickDisplay();
+  if (startScreen) {
+    introScreen();
+  }
 
 
-  //move
-  p.move(upL, downL);
-  p2.move(upR, downR);
-  b.move();
-  //brick.move();
-  b.bounce(p);
-  b.bounce(p2);
-  brickBounce();
-  //pause();
-  userInter();
-  keyPressed();
-  keyReleased();
+  if (game) {
+    //diplay world and elements
+    background(0);
+    stroke(255);
+
+    fill(r1, r2, r3);
+    b.display();
+
+    fill(r3, r1, r2);
+    p.display();
+    p2.display();
+
+    fill(r2, r3, r1);
+    brickDisplay();
+
+
+    //move
+    p.move(upL, downL);
+    p2.move(upR, downR);
+    b.move();
+    //brick.move();
+    b.bounce(p);
+    b.bounce(p2);
+    brickBounce();
+    //pause();
+    userInter();
+    keyPressed();
+    keyReleased();
+  }
 }
 
 void keyPressed() {
@@ -126,17 +134,15 @@ void brickBounce() {
   }
 }
 
-void userInter(){
+void userInter() {
 
   stroke(255);
   fill(255);
   textSize(64);
   text(score, 700.0, 50.0);
-  
+
   text(p1Score, 100.0, 50.0);
   text(p2Score, 1300.0, 50.0);
-
-
 }
 
 
@@ -146,16 +152,27 @@ void init() {
 
 /*
 void pause() {
-  if (paused) {
-    noLoop();
-    stroke(0);
-    fill(random(255), random(255), random(255));
-    rect(0.0, 0.0, 1400.0, 700.0);
-    stroke(0);
-    fill(random(255), random(255), random(255));
-    textSize(64);
-    text("Paused", 600.0, 350.0);
-  }
-  }
-  
-  */
+ if (paused) {
+ noLoop();
+ stroke(0);
+ fill(random(255), random(255), random(255));
+ rect(0.0, 0.0, 1400.0, 700.0);
+ stroke(0);
+ fill(random(255), random(255), random(255));
+ textSize(64);
+ text("Paused", 600.0, 350.0);
+ }
+ }
+ 
+ */
+
+
+void introScreen() {
+
+  //Setup Background
+  fill(r2, r1, r3);
+  rect(0.0, 0.0, 1400.0, 700.0);
+  textSize(64);
+  fill(r1, r3, r2);
+  text("BrickPong", 600.0, 350.0);
+}
