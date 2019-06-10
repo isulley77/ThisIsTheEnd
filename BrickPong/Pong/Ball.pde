@@ -52,14 +52,16 @@ class Ball extends MovableElement {
 */
   
   void bounce(PongPaddle p){
-    if(b.xCord >= 1275 && b.yCord > p.yCord && b.yCord < (p.yCord + 100.0)){
+    if(b.xCord + b.getXSpeed() >= 1275 && b.yCord + b.getYSpeed() >= p.yCord && b.yCord + getYSpeed() <= (p.yCord + 100.0)){
       b.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
     }
-    if(b.xCord <= 175 && b.yCord > p.yCord && b.yCord < (p.yCord + 100.0)){
+    if(b.xCord +b.getXSpeed() <= 175 && b.yCord + b.getYSpeed() >= p.yCord && b.yCord + getYSpeed() <= (p.yCord + 100.0)){
       b.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .5);
     }
   
   }
+  
+  
   public void bounce(Brick b) {
     double distance = Math.sqrt(Math.pow(b.getX() - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
     double distance2 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
@@ -73,4 +75,17 @@ class Ball extends MovableElement {
       }
     }
   }
+  
+  /*
+  void bounce(Brick brick){
+    if(b.xCord >= brick.xCord &&
+       b.xCord <= brick.xCord + 100.0 &&
+       b.yCord >= brick.yCord &&
+       b.yCord <= brick.yCord + 25.0){
+          b.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .25);
+          brick.remove();
+       
+       }
+  }
+  */
 }
