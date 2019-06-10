@@ -82,43 +82,77 @@ void draw() {
   if (paused) {
     pauseScreen();
   }
-  
 }
 
 void keyPressed() {
-  if (key == 'w' || key == 'W') {
-    upL = true;
+  if (onePlayer && b.getXSpeed() < 0) {
+    if (key == 'w' || key == 'W') {
+      upL = true;
+    }
+    if (key == 's' || key == 'S') {
+      downL = true;
+    }
   }
-  if (key == 's' || key == 'S') {
-    downL = true;
+  if (onePlayer && b.getXSpeed() > 0) {
+    if (key == 'w' || key == 'W') {
+      upR = true;
+    }
+    if (key == 's' || key == 'S') {
+      downR = true;
+    }
   }
-  if (key == 'i' || key == 'I') {
-    upR = true;
+  else{
+    if (key == 'w' || key == 'W') {
+      upL = true;
+    }
+    if (key == 's' || key == 'S') {
+      downL = true;
+    }
+    if (key == 'i' || key == 'I') {
+      upR = true;
+    }
+    if (key == 'k' || key == 'K') {
+      downR = true;
+    }
+    
   }
-  if (key == 'k' || key == 'K') {
-    downR = true;
-  }
-  if(key == 'p'){
+  if (key == 'p') {
     game = !game;
     paused = !paused;
   }
 }
 
 public void keyReleased() {
-
-  if (key == 'w' || key == 'W') {
-    upL = false;
+  if (onePlayer && b.getXSpeed() < 0) {
+    if (key == 'w' || key == 'W') {
+      upL = false;
+    }
+    if (key == 's' || key == 'S') {
+      downL = false;
+    }
   }
-  if (key == 's' || key == 'S') {
-    downL = false;
+  if (onePlayer && b.getXSpeed() > 0) {
+    if (key == 'w' || key == 'W') {
+      upR = false;
+    }
+    if (key == 's' || key == 'S') {
+      downR = false;
+    }
   }
-  if (key == 'i' || key == 'I') {
-    upR = false;
-  }
-  if (key == 'k' || key == 'K') {
-    downR = false;
-  }
-  if (key == 'p' || key == 'P') {
+  else{
+    if (key == 'w' || key == 'W') {
+      upL = false;
+    }
+    if (key == 's' || key == 'S') {
+      downL = false;
+    }
+    if (key == 'i' || key == 'I') {
+      upR = false;
+    }
+    if (key == 'k' || key == 'K') {
+      downR = false;
+    }
+    
   }
 }
 
@@ -221,6 +255,7 @@ void mousePressed() {
     startScreen == true) {
     game = true;
     startScreen = false;
+    onePlayer = true;
   }
   //select two player mode
   if (mouseX > 715.0 - 175.0 && mouseX < 715.0 + 175.0 && 
@@ -228,8 +263,9 @@ void mousePressed() {
     startScreen == true) {
     game = true;
     startScreen = false;
+    onePlayer = false;
   }
-  
+
   //select controls menu
   if (mouseX > 625.0 - 150.0 && mouseX < 625.0 + 150.0 && 
     mouseY > 520.0 - 40.0 && mouseY < 520.0 + 40.0 &&
@@ -237,12 +273,12 @@ void mousePressed() {
     controlScreen = true;
     startScreen = false;
   }
-  
+
   /*
   if (mouseX > 0.0 && mouseX < 1400.0 && 
-    mouseY > 0.0 && mouseY < 700.0 &&
-    paused == true) {
-      paused = false;
-  }
-  */
+   mouseY > 0.0 && mouseY < 700.0 &&
+   paused == true) {
+   paused = false;
+   }
+   */
 }
