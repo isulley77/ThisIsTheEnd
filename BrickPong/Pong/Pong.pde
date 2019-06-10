@@ -3,6 +3,7 @@ boolean paused = false;
 boolean startScreen = true;
 boolean controlScreen = false;
 boolean game = false;
+boolean onePlayer;
 
 int level = 10;
 int score = 0;
@@ -48,7 +49,7 @@ void draw() {
   }
 
 
-  if ((game || !paused) && !startScreen && !controlScreen) {
+  if (game) {
     //diplay world and elements
     background(0);
     stroke(255);

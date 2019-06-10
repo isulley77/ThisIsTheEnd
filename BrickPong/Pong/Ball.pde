@@ -1,5 +1,6 @@
 class Ball extends MovableElement {
 
+  
   //constructor
   public Ball(float x, float y, float w, float h) {
     setX(x);
@@ -61,13 +62,13 @@ class Ball extends MovableElement {
   
   }
   
-  
+ /* 
   public void bounce(Brick b) {
-    double distance = Math.sqrt(Math.pow(b.getX() - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
-    double distance2 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow(b.getY() - yCord, 2)));
-    double distance3 = Math.sqrt(Math.pow(b.getX() - xCord, 2) + (Math.pow((b.getY() + b.getHeight()) - yCord, 2)));
-    double distance4 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - xCord, 2) + (Math.pow((b.getY() + getHeight()) - yCord, 2)));
-    if (distance < 25.0 || distance2 < 25.0 || distance3 < 25.0 || distance4 < 25.0) {
+    double distance = Math.sqrt(Math.pow(b.getX() - (xCord - getXSpeed()) , 2) + (Math.pow(b.getY() - (yCord - getYSpeed()), 2)));
+    double distance2 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - (xCord - getXSpeed()), 2) + (Math.pow(b.getY() -(yCord - getYSpeed()), 2)));
+    double distance3 = Math.sqrt(Math.pow(b.getX() - (xCord - getXSpeed()), 2) + (Math.pow((b.getY() + b.getHeight()) - (yCord - getYSpeed()), 2)));
+    double distance4 = Math.sqrt(Math.pow((b.getX() + b.getWidth()) - (xCord - getXSpeed()), 2) + (Math.pow((b.getY() + getHeight()) - (yCord - getYSpeed()), 2)));
+    if (distance <= 25.0  || distance2 <= 25.0 || distance3 <= 25.0 || distance4 <= 25.0) {
       this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .25);
       b.health--;
       if(b.health == 0){
@@ -75,17 +76,38 @@ class Ball extends MovableElement {
       }
     }
   }
-  
-  /*
-  void bounce(Brick brick){
-    if(b.xCord >= brick.xCord &&
-       b.xCord <= brick.xCord + 100.0 &&
-       b.yCord >= brick.yCord &&
-       b.yCord <= brick.yCord + 25.0){
-          b.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .25);
-          brick.remove();
-       
-       }
-  }
   */
+  
+
+  void bounce(Brick brick){
+    
+    float xEdge = b.xCord;
+    float yEdge = b.yCord;
+    
+    double distance;
+    
+    
+    if(b.xCord < brick.xCord){
+      xEdge = brick.xCord;
+    }
+    else if(b.xCord > brick.xCord + brick.width){
+      xEdge = brick.xCord + brick.width;
+    }
+    
+    if(b.yCord < brick.yCord){
+      yEdge = brick.yCord;
+    }
+    else if(b.yCord > brick.yCord + brick.height){
+      yEdge = brick.yCord + brick.height;
+    }
+    
+    distance = Math.sqrt(Math.pow(b.xCord - xEdge, 2) + (Math.pow(b.yCord - yEdge, 2))); 
+    
+    if(distance <= 25.0){
+      this.setSpeed(getXSpeed() * -1, getYSpeed() * random(2) + .25);
+      brick.remove();
+    }
+    
+  }
+
 }
