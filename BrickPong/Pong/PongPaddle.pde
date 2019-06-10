@@ -6,12 +6,12 @@ public class PongPaddle extends MovableElement{
     setX(x);
     setY(y);
     setSpeed(0.0, ySpeed);
-    setHeight(100.0);
-    setWidth(50.0);
+    setHeight(175.0);
+    setWidth(25.0);
   }
   
   public void display(){
-    rect(xCord, yCord, 50, 100);
+    rect(xCord, yCord, this.width, this.height);
   }
   
   public void move(boolean upL, boolean downL){

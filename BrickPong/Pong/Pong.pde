@@ -34,8 +34,8 @@ void setup() {
   size(1400, 700);
 
   b = new Ball(700.0, 350.0, 50.0, 50.0);
-  p = new PongPaddle(100.0, 350.0, 15.0);
-  p2 = new PongPaddle(1300.0, 350.0, 15.0);
+  p = new PongPaddle(25.0, 350.0, 15.0);
+  p2 = new PongPaddle(1350.0, 350.0, 15.0);
   brickGen();
 }
 
@@ -48,7 +48,7 @@ void draw() {
   }
 
 
-  if (game) {
+  if ((game || !paused) && !startScreen && !controlScreen) {
     //diplay world and elements
     background(0);
     stroke(255);
@@ -81,6 +81,7 @@ void draw() {
   if (paused) {
     pauseScreen();
   }
+  
 }
 
 void keyPressed() {
@@ -95,6 +96,10 @@ void keyPressed() {
   }
   if (key == 'k' || key == 'K') {
     downR = true;
+  }
+  if(key == 'p'){
+    game = !game;
+    paused = !paused;
   }
 }
 
@@ -112,7 +117,7 @@ public void keyReleased() {
   if (key == 'k' || key == 'K') {
     downR = false;
   }
-  if (key == 'r' || key == 'R') {
+  if (key == 'p' || key == 'P') {
   }
 }
 
@@ -165,10 +170,10 @@ void init() {
 
 void pauseScreen() {
   stroke(0);
-  fill(random(255), random(255), random(255));
+  fill(r1, r1, r1);
   rect(0.0, 0.0, 1400.0, 700.0);
   stroke(0);
-  fill(random(255), random(255), random(255));
+  fill(r2, r2, r2);
   textSize(64);
   text("Paused", 600.0, 350.0);
 }
@@ -231,4 +236,12 @@ void mousePressed() {
     controlScreen = true;
     startScreen = false;
   }
+  
+  /*
+  if (mouseX > 0.0 && mouseX < 1400.0 && 
+    mouseY > 0.0 && mouseY < 700.0 &&
+    paused == true) {
+      paused = false;
+  }
+  */
 }
